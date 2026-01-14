@@ -10,7 +10,7 @@ const navItems = [
   { name: 'Home', href: '/', icon: FaHome },
   { name: 'About', href: '/about', icon: FaUser },
   { name: 'Projects', href: '/projects', icon: FaCode },
-  { name: 'Internships', href: '/internships', icon: FaBriefcase },
+  { name: 'Experience', href: '/internships', icon: FaBriefcase },
   { name: 'Education', href: '/education', icon: FaGraduationCap },
   { name: 'Achievements', href: '/achievements', icon: FaTrophy },
   { name: 'Contact', href: '/contact', icon: FaEnvelope },

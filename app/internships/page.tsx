@@ -3,25 +3,28 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { FaBriefcase, FaArrowRight, FaArrowLeft, FaCalendar, FaMapMarkerAlt } from 'react-icons/fa'
+import { SiSalesforce } from 'react-icons/si'
 import Typewriter from '@/components/Typewriter'
 
 export default function InternshipsPage() {
   const experiences = [
     {
       company: 'Salesforce',
-      logo: '☁️',
+      logo: 'salesforce',
       position: 'Software Engineering Intern',
       location: 'Hyderabad, India',
       duration: 'May 2024 - Jul 2024',
       type: 'On-site',
-      description: 'Worked on backend systems and enterprise-level solutions. Focused on resolving duplicate order idempotency issues in Salesforce-integrated systems.',
+      description: 'Worked on a critical backend reliability issue related to duplicate order creation in a Salesforce-integrated system. The problem stemmed from non-idempotent request handling in distributed and event-driven systems, where retries, delays, or repeated triggers could result in data inconsistency and downstream processing issues.',
       achievements: [
-        'Designed logic to identify and prevent duplicate order creation',
-        'Implemented date-based and ID-based validation checks',
-        'Optimized backend processing for idempotent behavior',
-        'Improved system reliability by reducing redundant operations',
+        'Analyzed existing order creation flows to identify duplicate request processing points',
+        'Designed and implemented idempotency logic with order identifier and time-based validation',
+        'Introduced conditional checks using order metadata and timestamps for safe request handling',
+        'Optimized backend queries to minimize unnecessary Salesforce API calls',
+        'Collaborated with senior engineers on edge case validation and production standards',
+        'Explored Agentic AI capabilities and MuleSoft integration patterns',
       ],
-      technologies: ['Salesforce', 'Apex', 'Java', 'REST APIs'],
+      technologies: ['Salesforce', 'Apex', 'MuleSoft', 'Agentic AI', 'REST APIs', 'Java'],
       color: 'from-blue-500 to-cyan-500',
     },
     {
@@ -83,47 +86,61 @@ export default function InternshipsPage() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-purple-500 to-pink-500" />
+          <div className="absolute left-[140px] md:left-[180px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-purple-500 to-pink-500" />
 
           <div className="space-y-12">
             {experiences.map((experience, index) => (
               <motion.div
                 key={experience.company}
                 variants={itemVariants}
-                className="relative pl-20"
+                className="relative flex gap-4 md:gap-8"
               >
+                {/* Left side - Date */}
+                <div className="w-[120px] md:w-[160px] flex-shrink-0 text-right pr-4">
+                  <div className="text-accent font-mono text-sm font-semibold">
+                    {experience.duration.split(' - ')[0]}
+                  </div>
+                  <div className="text-gray-500 font-mono text-xs">
+                    {experience.duration.split(' - ')[1]}
+                  </div>
+                  <div className="text-gray-600 text-xs mt-1">
+                    {experience.type}
+                  </div>
+                </div>
+
                 {/* Timeline dot */}
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.5 + index * 0.2, type: 'spring' }}
-                  className={`absolute left-4 w-8 h-8 rounded-full bg-gradient-to-br ${experience.color} flex items-center justify-center text-lg shadow-lg`}
-                >
-                  {experience.logo}
-                </motion.div>
+                  className={`absolute left-[132px] md:left-[172px] w-4 h-4 rounded-full bg-gradient-to-br ${experience.color} shadow-lg z-10`}
+                />
 
+                {/* Right side - Content */}
                 <motion.div
-                  whileHover={{ scale: 1.02, x: 10 }}
-                  className="bg-secondary rounded-2xl p-6 shadow-xl border border-accent/10 hover:border-accent/30 transition-all duration-300"
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  className="flex-1 bg-secondary rounded-2xl p-6 shadow-xl border border-accent/10 hover:border-accent/30 transition-all duration-300 ml-4"
                 >
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl">
+                      {experience.logo === 'salesforce' ? (
+                        <SiSalesforce className="text-[#00A1E0]" />
+                      ) : (
+                        experience.logo
+                      )}
+                    </span>
                     <div>
-                      <h3 className="text-2xl font-bold text-accent">{experience.position}</h3>
-                      <p className="text-xl text-gray-300">{experience.company}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="flex items-center gap-2 text-gray-400 text-sm">
-                        <FaCalendar className="text-accent" />
-                        {experience.duration}
-                      </div>
-                      <div className="flex items-center gap-2 text-gray-400 text-sm mt-1">
-                        <FaMapMarkerAlt className="text-accent" />
-                        {experience.location} • {experience.type}
-                      </div>
+                      <h3 className="text-xl font-bold text-accent">{experience.position}</h3>
+                      <p className="text-gray-300">{experience.company}</p>
                     </div>
                   </div>
+                  
+                  <div className="flex items-center gap-2 text-gray-500 text-sm mb-4">
+                    <FaMapMarkerAlt className="text-accent" />
+                    {experience.location}
+                  </div>
 
-                  <p className="text-gray-300 mb-4">{experience.description}</p>
+                  <p className="text-gray-300 mb-4 text-sm">{experience.description}</p>
 
                   <div className="mb-4">
                     <p className="text-sm font-semibold text-accent mb-2 font-mono">// Key Achievements</p>
