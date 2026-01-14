@@ -11,18 +11,18 @@ export default function AboutPage() {
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   const skills = [
-    { name: 'JavaScript', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'React/Next.js', level: 90 },
-    { name: 'Node.js', level: 80 },
-    { name: 'Python', level: 75 },
-    { name: 'MongoDB', level: 80 },
-    { name: 'PostgreSQL', level: 75 },
+    { name: 'Python', level: 90 },
+    { name: 'Machine Learning', level: 85 },
+    { name: 'Deep Learning', level: 80 },
+    { name: 'LLMs/NLP', level: 85 },
+    { name: 'React/Next.js', level: 80 },
+    { name: 'FastAPI/Flask', level: 85 },
+    { name: 'Java', level: 75 },
+    { name: 'TensorFlow/PyTorch', level: 80 },
+    { name: 'SQL/MongoDB', level: 75 },
     { name: 'Git', level: 85 },
     { name: 'Docker', level: 70 },
     { name: 'AWS', level: 65 },
-    { name: 'Tailwind CSS', level: 90 },
-    { name: 'GraphQL', level: 70 },
   ]
 
   const containerVariants = {
@@ -70,22 +70,19 @@ export default function AboutPage() {
               <span className="text-gray-400 text-sm font-mono ml-2">about.md</span>
             </div>
             
-            <h2 className="text-2xl font-bold mb-4 text-accent font-mono">## Who I Am</h2>
+            <h2 className="text-2xl font-bold mb-4 text-accent font-mono">## Who Am I ?</h2>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                I&apos;m a passionate developer with a strong foundation in computer science 
-                and a love for creating innovative solutions. With experience in both 
-                frontend and backend development, I enjoy building full-stack applications 
-                that make a difference.
+                I am a computer science undergraduate and AI-focused full-stack developer who enjoys building systems that solve real problems, not just demos. My work sits at the intersection of artificial intelligence, backend engineering, and modern web development.
               </p>
               <p>
-                My journey in tech has been driven by curiosity and a constant desire 
-                to learn. I thrive in collaborative environments and believe in writing 
-                clean, maintainable code.
+                I have hands-on experience working with Python, Java, Flask, FastAPI, React, and Next.js, and have built projects ranging from AI-powered developer tools to full-stack platforms. Having interned at Salesforce, I have learned the importance of writing clean, maintainable, and production-ready code.
               </p>
               <p>
-                When I&apos;m not coding, you can find me exploring new technologies, 
-                contributing to open source, or sharing knowledge with the developer community.
+                What drives me is curiosity and consistency. I enjoy understanding how things work under the hood - whether it is optimizing an algorithm, designing an API, or integrating large language models into real applications.
+              </p>
+              <p>
+                Outside of development, I explore emerging AI technologies, refine my problem-solving skills on platforms like LeetCode, and contribute to meaningful projects. My goal is simple: build impactful software while continuously growing as an engineer.
               </p>
             </div>
 
@@ -94,7 +91,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { label: 'Years Experience', value: '3+' },
-                  { label: 'Projects Completed', value: '20+' },
+                  { label: 'Projects Completed', value: '5+' },
                   { label: 'Technologies', value: '15+' },
                   { label: 'Coffee Cups', value: '∞' },
                 ].map((stat) => (
