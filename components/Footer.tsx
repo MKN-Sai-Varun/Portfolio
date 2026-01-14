@@ -18,7 +18,7 @@ export default function Footer() {
           <FaHeart className="text-red-500 mx-1" />
           <span className="text-white mx-1">+</span>
           <FaCode className="text-accent mx-1" />
-          <span className="text-green-400 ml-2">&quot;by Your Name&quot;</span>
+          <span className="text-green-400 ml-2">&quot;MKN Sai Varun&quot;</span>
         </p>
         
         <p className="text-gray-500 text-sm mt-2 font-mono">

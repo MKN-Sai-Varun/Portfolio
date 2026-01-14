@@ -3,6 +3,7 @@ import { Inter, Fira_Code } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Background, { FloatingShapes, CodeBrackets } from '@/components/Background'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const firaCode = Fira_Code({ subsets: ['latin'], variable: '--font-fira' })
@@ -20,8 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${firaCode.variable} font-sans`}>
+        <Background />
+        <FloatingShapes />
+        <CodeBrackets />
         <Navbar />
-        <main className="min-h-screen">
+        <main className="min-h-screen relative z-10">
           {children}
         </main>
         <Footer />

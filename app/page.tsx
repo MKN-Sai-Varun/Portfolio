@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaEnvelope, FaTerminal, FaArrowRight } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaTerminal, FaArrowRight } from 'react-icons/fa'
+import { SiLeetcode } from 'react-icons/si'
 import Link from 'next/link'
 import Typewriter from '@/components/Typewriter'
 import CodeTypewriter from '@/components/CodeTypewriter'
@@ -9,10 +10,10 @@ import CodeTypewriter from '@/components/CodeTypewriter'
 export default function Home() {
   const codeLines = [
     { text: 'const developer = {', color: 'text-purple-400' },
-    { text: 'name: "Your Name",', color: 'text-green-400', indent: 1 },
-    { text: 'role: "Full Stack Developer",', color: 'text-green-400', indent: 1 },
-    { text: 'skills: ["React", "Next.js", "Node.js"],', color: 'text-yellow-400', indent: 1 },
-    { text: 'passion: "Building amazing apps"', color: 'text-green-400', indent: 1 },
+    { text: 'name: "Varun",', color: 'text-green-400', indent: 1 },
+    { text: 'role: "AI Engineer & Full Stack Developer",', color: 'text-green-400', indent: 1 },
+    { text: 'skills: ["Machine Learning", "Deep Learning", "LLM"],', color: 'text-yellow-400', indent: 1 },
+    { text: 'passion: "Turning ideas into real-world AI solutions"', color: 'text-green-400', indent: 1 },
     { text: '};', color: 'text-purple-400' },
     { text: '', color: '' },
     { text: 'developer.sayHello();', color: 'text-blue-400' },
@@ -66,7 +67,7 @@ export default function Home() {
               className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-accent via-blue-500 to-purple-600"
             >
               <Typewriter
-                text="Your Name"
+                text="Varun"
                 speed={150}
                 delay={500}
                 cursor={true}
@@ -104,9 +105,9 @@ export default function Home() {
               className="flex justify-center lg:justify-start space-x-6 mb-8"
             >
               {[
-                { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
-                { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { icon: FaEnvelope, href: 'mailto:your.email@example.com', label: 'Email' },
+                { icon: FaGithub, href: 'https://github.com/MKN-Sai-Varun', label: 'GitHub' },
+                { icon: FaLinkedin, href: 'https://www.linkedin.com/in/mknsvarun/', label: 'LinkedIn' },
+                { icon: SiLeetcode, href: 'https://leetcode.com/u/mknsvarun/', label: 'LeetCode' },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
