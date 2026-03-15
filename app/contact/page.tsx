@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
+import { SiLeetcode } from 'react-icons/si'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane, FaArrowLeft, FaCheckCircle } from 'react-icons/fa'
 import Typewriter from '@/components/Typewriter'
 
@@ -33,15 +34,15 @@ export default function ContactPage() {
   }
 
   const contactInfo = [
-    { icon: FaEnvelope, label: 'Email', value: 'your.email@example.com', href: 'mailto:your.email@example.com' },
-    { icon: FaPhone, label: 'Phone', value: '+1 234 567 8900', href: 'tel:+1234567890' },
-    { icon: FaMapMarkerAlt, label: 'Location', value: 'Your City, Country', href: '#' },
+    { icon: FaEnvelope, label: 'Email', value: 'mknsvarun@gmail.com', href: 'mailto:mknsvarun@gmail.com' },
+    { icon: FaPhone, label: 'Phone', value: '+91 9550823377', href: 'tel:+919550823377' },
+    { icon: FaMapMarkerAlt, label: 'Location', value: 'Hyderabad, Telangana', href: '#' },
   ]
 
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com', label: 'GitHub', color: 'hover:bg-gray-700' },
-    { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn', color: 'hover:bg-blue-600' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter', color: 'hover:bg-sky-500' },
+    { icon: FaGithub, href: 'https://github.com/MKN-Sai-Varun', label: 'GitHub', color: 'hover:bg-gray-700' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/in/mknsvarun', label: 'LinkedIn', color: 'hover:bg-blue-600' },
+    { icon: SiLeetcode, href: 'https://leetcode.com/u/mknsvarun/', label: 'LeetCode', color: 'hover:bg-orange-500' },
   ]
 
   const containerVariants = {
@@ -96,15 +97,15 @@ export default function ContactPage() {
                   <span className="text-purple-400">{'{'}</span>{'\n'}
                   <span className="text-blue-400 ml-4">&quot;email&quot;</span>
                   <span className="text-white">: </span>
-                  <span className="text-green-400">&quot;your.email@example.com&quot;</span>
+                  <span className="text-green-400">&quot;mknsvarun@gmail.com&quot;</span>
                   <span className="text-white">,</span>{'\n'}
                   <span className="text-blue-400 ml-4">&quot;phone&quot;</span>
                   <span className="text-white">: </span>
-                  <span className="text-green-400">&quot;+1 234 567 8900&quot;</span>
+                  <span className="text-green-400">&quot;+91 9550823377&quot;</span>
                   <span className="text-white">,</span>{'\n'}
                   <span className="text-blue-400 ml-4">&quot;location&quot;</span>
                   <span className="text-white">: </span>
-                  <span className="text-green-400">&quot;Your City, Country&quot;</span>
+                  <span className="text-green-400">&quot;Hyderabad, Telangana&quot;</span>
                   <span className="text-white">,</span>{'\n'}
                   <span className="text-blue-400 ml-4">&quot;available&quot;</span>
                   <span className="text-white">: </span>
@@ -112,9 +113,9 @@ export default function ContactPage() {
                   <span className="text-white">,</span>{'\n'}
                   <span className="text-blue-400 ml-4">&quot;openTo&quot;</span>
                   <span className="text-white">: [</span>{'\n'}
-                  <span className="text-green-400 ml-8">&quot;Full-time roles&quot;</span>
+                  <span className="text-green-400 ml-8">&quot;Internships&quot;</span>
                   <span className="text-white">,</span>{'\n'}
-                  <span className="text-green-400 ml-8">&quot;Freelance projects&quot;</span>
+                  <span className="text-green-400 ml-8">&quot;AIML Based Research Programs&quot;</span>
                   <span className="text-white">,</span>{'\n'}
                   <span className="text-green-400 ml-8">&quot;Collaborations&quot;</span>{'\n'}
                   <span className="text-white ml-4">]</span>{'\n'}
