@@ -51,7 +51,7 @@ export default function ProjectsPage() {
       title: 'Expression Analysis for Dyslexic Kids',
       description: 'Uses computer vision and deep learning to analyze facial expressions of dyslexic children during educational gameplay. Identifies emotions like engagement and frustration to optimize game design, tailoring experiences to individual learning needs and improving outcomes.',
       tech: ['Python', 'Computer Vision', 'Deep Learning', 'OpenCV'],
-      github: '',
+      github: 'https://github.com/MKN-Sai-Varun/Expression_Analysis-',
       live: '',
       color: 'from-indigo-500 to-violet-500',
       image: '🧠',
