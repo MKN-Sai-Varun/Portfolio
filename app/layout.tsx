@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Varun | AI Engineer & Full Stack Developer',
     description: 'Portfolio of MKN Sai Varun — AI Engineer, Full Stack Developer, and Salesforce SWE Intern.',
-    url: 'https://mknsvarun.dev',
+    url: 'https://portfolio-tau-ochre-61.vercel.app',
     siteName: 'Varun Portfolio',
     type: 'website',
   },

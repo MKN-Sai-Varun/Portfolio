@@ -142,7 +142,7 @@ export default function Home() {
                 </motion.button>
               </Link>
               <motion.a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1N3fOlvWOL9hr7cvM9jjq6_QOXJDA9_C9/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
