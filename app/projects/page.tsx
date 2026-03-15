@@ -48,14 +48,14 @@ export default function ProjectsPage() {
       category: 'AI · Data Analytics',
     },
     {
-      title: 'Personal Portfolio',
-      description: 'Modern, responsive portfolio website with animated backgrounds, typewriter effects, and modular page architecture. Built with focus on clean design and performance.',
-      tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
-      github: 'https://github.com/MKN-Sai-Varun/Portfolio',
+      title: 'Expression Analysis for Dyslexic Kids',
+      description: 'Uses computer vision and deep learning to analyze facial expressions of dyslexic children during educational gameplay. Identifies emotions like engagement and frustration to optimize game design, tailoring experiences to individual learning needs and improving outcomes.',
+      tech: ['Python', 'Computer Vision', 'Deep Learning', 'OpenCV'],
+      github: '',
       live: '',
       color: 'from-indigo-500 to-violet-500',
-      image: '🌐',
-      category: 'Frontend · Personal Branding',
+      image: '🧠',
+      category: 'AI · Computer Vision',
     },
   ]
 
