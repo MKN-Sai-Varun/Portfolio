@@ -1,45 +1,68 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
-import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'
+import { FaArrowRight, FaArrowLeft, FaJava } from 'react-icons/fa'
+import {
+  SiPython, SiTensorflow, SiPytorch, SiReact, SiNextdotjs,
+  SiFastapi, SiFlask, SiMongodb, SiPostgresql, SiDocker,
+  SiGit, SiAmazon, SiScikitlearn,
+} from 'react-icons/si'
 import Typewriter from '@/components/Typewriter'
 
 export default function AboutPage() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-50px' })
 
-  const skills = [
-    { name: 'Python', level: 90 },
-    { name: 'Machine Learning', level: 85 },
-    { name: 'Deep Learning', level: 80 },
-    { name: 'LLMs/NLP', level: 85 },
-    { name: 'React/Next.js', level: 80 },
-    { name: 'FastAPI/Flask', level: 85 },
-    { name: 'Java', level: 75 },
-    { name: 'TensorFlow/PyTorch', level: 80 },
-    { name: 'SQL/MongoDB', level: 75 },
-    { name: 'Git', level: 85 },
-    { name: 'Docker', level: 70 },
-    { name: 'AWS', level: 65 },
+  const skillGroups = [
+    {
+      category: 'AI / ML',
+      color: 'from-purple-500 to-pink-500',
+      skills: [
+        { name: 'Python', icon: SiPython, color: '#3776AB' },
+        { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00' },
+        { name: 'PyTorch', icon: SiPytorch, color: '#EE4C2C' },
+        { name: 'Scikit-learn', icon: SiScikitlearn, color: '#F7931E' },
+      ],
+    },
+    {
+      category: 'Frontend',
+      color: 'from-blue-500 to-cyan-500',
+      skills: [
+        { name: 'React', icon: SiReact, color: '#61DAFB' },
+        { name: 'Next.js', icon: SiNextdotjs, color: '#ffffff' },
+      ],
+    },
+    {
+      category: 'Backend',
+      color: 'from-green-500 to-emerald-500',
+      skills: [
+        { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
+        { name: 'Flask', icon: SiFlask, color: '#ffffff' },
+        { name: 'Java', icon: FaJava, color: '#007396' },
+      ],
+    },
+    {
+      category: 'Databases & Tools',
+      color: 'from-orange-500 to-yellow-500',
+      skills: [
+        { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+        { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+        { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+        { name: 'Git', icon: SiGit, color: '#F05032' },
+        { name: 'AWS', icon: SiAmazon, color: '#FF9900' },
+      ],
+    },
   ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   }
 
   const itemVariants = {
     hidden: { x: -50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.5 } },
   }
 
   return (
@@ -69,7 +92,7 @@ export default function AboutPage() {
               <div className="w-3 h-3 rounded-full bg-green-500" />
               <span className="text-gray-400 text-sm font-mono ml-2">about.md</span>
             </div>
-            
+
             <h2 className="text-2xl font-bold mb-4 text-accent font-mono">## Who Am I ?</h2>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
@@ -90,7 +113,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-bold mb-4 text-accent font-mono">## Quick Stats</h3>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { label: 'Years Experience', value: '3+' },
+                  { label: 'LeetCode Rating', value: '1660' },
                   { label: 'Projects Completed', value: '5+' },
                   { label: 'Technologies', value: '15+' },
                   { label: 'Coffee Cups', value: '∞' },
@@ -109,30 +132,68 @@ export default function AboutPage() {
           </motion.div>
 
           {/* Skills Section */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="space-y-4">
             <h2 className="text-2xl font-bold mb-6 text-accent font-mono">## Skills & Expertise</h2>
-            <div className="space-y-4">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                >
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium text-gray-300">{skill.name}</span>
-                    <span className="text-sm text-accent font-mono">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-gray-700/50 rounded-full h-2.5 overflow-hidden">
-                    <motion.div
-                      className="bg-gradient-to-r from-accent to-blue-600 h-2.5 rounded-full"
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: `${skill.level}%` } : {}}
-                      transition={{ duration: 1, delay: 0.3 + index * 0.05 }}
-                    />
-                  </div>
-                </motion.div>
-              ))}
+            {skillGroups.map((group, gi) => (
+              <motion.div
+                key={group.category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: gi * 0.1 }}
+                className="bg-secondary/50 rounded-2xl p-5 border border-accent/10 hover:border-accent/30 transition-all"
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  <div className={`h-1 w-6 rounded-full bg-gradient-to-r ${group.color}`} />
+                  <p className="text-sm font-mono text-gray-400">{group.category}</p>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {group.skills.map((skill, si) => {
+                    const Icon = skill.icon
+                    return (
+                      <motion.div
+                        key={skill.name}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: gi * 0.1 + si * 0.05 }}
+                        whileHover={{ scale: 1.1, y: -3 }}
+                        className="flex items-center gap-2 bg-gray-800/60 px-3 py-2 rounded-xl border border-gray-700/50 hover:border-accent/30 transition-all"
+                      >
+                        <Icon style={{ color: skill.color }} className="text-lg" />
+                        <span className="text-sm text-gray-300">{skill.name}</span>
+                      </motion.div>
+                    )
+                  })}
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Extracurriculars */}
+            <div>
+              <div className="flex items-center gap-2 mb-4 mt-2">
+                <div className="h-1 w-6 rounded-full bg-gradient-to-r from-pink-500 to-rose-500" />
+                <p className="text-sm font-mono text-gray-400">Beyond the Code</p>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { emoji: '🏓', label: 'Table Tennis', desc: 'Competitive player, love the fast pace' },
+                  { emoji: '📖', label: 'Reading', desc: 'Real mysteries, thrillers, and tech deep-dives' },
+                  { emoji: '⚽', label: 'Sports', desc: 'Football, cricket — anything with a team' },
+                  { emoji: '🤝', label: 'Networking', desc: 'Connecting with devs and builders worldwide' },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + i * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    className="bg-secondary/50 rounded-2xl p-4 border border-accent/10 hover:border-accent/30 transition-all text-center"
+                  >
+                    <div className="text-3xl mb-2">{item.emoji}</div>
+                    <p className="text-white text-sm font-semibold mb-1">{item.label}</p>
+                    <p className="text-gray-400 text-xs">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -143,19 +204,13 @@ export default function AboutPage() {
           className="flex justify-between items-center mt-16 pt-8 border-t border-accent/10"
         >
           <Link href="/">
-            <motion.button
-              whileHover={{ x: -5 }}
-              className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors"
-            >
+            <motion.button whileHover={{ x: -5 }} className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors">
               <FaArrowLeft /> Home
             </motion.button>
           </Link>
           <p className="text-gray-400 font-mono">&lt;/About&gt;</p>
           <Link href="/projects">
-            <motion.button
-              whileHover={{ x: 5 }}
-              className="flex items-center gap-2 text-accent hover:text-blue-400 transition-colors"
-            >
+            <motion.button whileHover={{ x: 5 }} className="flex items-center gap-2 text-accent hover:text-blue-400 transition-colors">
               Projects <FaArrowRight />
             </motion.button>
           </Link>

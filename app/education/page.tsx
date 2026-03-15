@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { FaGraduationCap, FaCalendar, FaBook, FaArrowRight, FaArrowLeft, FaTrophy } from 'react-icons/fa'
+import { FaCalendar, FaBook, FaArrowRight, FaArrowLeft, FaTrophy } from 'react-icons/fa'
 import Typewriter from '@/components/Typewriter'
 
 export default function EducationPage() {
@@ -25,34 +25,27 @@ export default function EducationPage() {
       duration: '2020 - 2022',
       gpa: '96.7%',
       description: 'Focused on Mathematics and Computer Science. Won several inter-school coding competitions.',
-      coursework: ['"Mathematics", "Physics", "Chemistry"'],
-      achievements: ['College Topper'],
+      coursework: ['Mathematics', 'Physics', 'Chemistry'],
+      achievements: [],
       color: 'from-green-500 to-teal-500',
     },
   ]
 
   const certifications = [
-    { name: 'AWS Certified Developer', issuer: 'Amazon', year: '2023', icon: '☁️' },
-    { name: 'Meta Frontend Developer', issuer: 'Meta', year: '2023', icon: '⚛️' },
-    { name: 'Google Data Analytics', issuer: 'Google', year: '2022', icon: '📊' },
-    { name: 'Python for Data Science', issuer: 'IBM', year: '2022', icon: '🐍' },
+    { name: 'NPTEL Python for DSA', issuer: 'NPTEL', year: '2024', icon: '🐍' },
+    { name: 'IBM Certified Data Science with Python', issuer: 'IBM', year: '2024', icon: '📊' },
+    { name: 'Prompt Design for Vertex AI', issuer: 'Google Cloud Skill Boost', year: '2024', icon: '🤖' },
+    { name: 'Develop GenAI Apps with Gemini and Streamlit', issuer: 'Google Cloud Skill Boost', year: '2024', icon: '✨' },
   ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
   }
 
   const itemVariants = {
     hidden: { x: -100, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
   }
 
   return (
@@ -71,6 +64,7 @@ export default function EducationPage() {
           <p className="text-gray-400 mt-4">Academic journey and continuous learning</p>
         </motion.div>
 
+
         {/* Main Education */}
         <div className="space-y-8 mb-16">
           {education.map((edu, index) => (
@@ -81,7 +75,7 @@ export default function EducationPage() {
               className="bg-secondary rounded-2xl overflow-hidden shadow-xl"
             >
               <div className={`h-2 bg-gradient-to-r ${edu.color}`} />
-              
+
               <div className="p-8">
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   <motion.div
@@ -92,11 +86,11 @@ export default function EducationPage() {
                   >
                     {edu.logo}
                   </motion.div>
-                  
+
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-accent mb-1">{edu.degree}</h3>
                     <p className="text-xl text-gray-300 mb-3">{edu.institution}</p>
-                    
+
                     <div className="flex flex-wrap gap-4 text-sm text-gray-400 mb-4">
                       <div className="flex items-center gap-2">
                         <FaCalendar className="text-accent" />
@@ -111,6 +105,8 @@ export default function EducationPage() {
                     <p className="text-gray-300 mb-6">{edu.description}</p>
 
                     {/* Achievements */}
+                    {/* Achievements */}
+                    {edu.achievements.length > 0 && (
                     <div className="mb-6">
                       <p className="text-sm font-mono text-accent mb-3 flex items-center gap-2">
                         <FaTrophy /> Achievements
@@ -119,7 +115,7 @@ export default function EducationPage() {
                         {edu.achievements.map((achievement) => (
                           <motion.span
                             key={achievement}
-                            whileHover={{ scale: 1.1 }}
+                            whileHover={{ scale: 1.05 }}
                             className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm"
                           >
                             {achievement}
@@ -127,6 +123,7 @@ export default function EducationPage() {
                         ))}
                       </div>
                     </div>
+                    )}
 
                     {/* Coursework */}
                     <div>
@@ -182,19 +179,13 @@ export default function EducationPage() {
           className="flex justify-between items-center mt-16 pt-8 border-t border-accent/10"
         >
           <Link href="/internships">
-            <motion.button
-              whileHover={{ x: -5 }}
-              className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors"
-            >
+            <motion.button whileHover={{ x: -5 }} className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors">
               <FaArrowLeft /> Internships
             </motion.button>
           </Link>
           <p className="text-gray-400 font-mono">{'}'}</p>
           <Link href="/achievements">
-            <motion.button
-              whileHover={{ x: 5 }}
-              className="flex items-center gap-2 text-accent hover:text-blue-400 transition-colors"
-            >
+            <motion.button whileHover={{ x: 5 }} className="flex items-center gap-2 text-accent hover:text-blue-400 transition-colors">
               Achievements <FaArrowRight />
             </motion.button>
           </Link>

@@ -52,3 +52,8 @@ Thumbs.db
 # Debug
 *.local
 DOCUMENTATION.md
+
+/public/resume.pdf
+
+# Resume PDF
+public/resume.pdf

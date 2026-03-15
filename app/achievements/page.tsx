@@ -2,66 +2,66 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { FaTrophy, FaMedal, FaAward, FaStar, FaCertificate, FaCode, FaArrowRight, FaArrowLeft } from 'react-icons/fa'
+import { FaTrophy, FaMedal, FaAward, FaCertificate, FaCode, FaArrowRight, FaArrowLeft } from 'react-icons/fa'
 import Typewriter from '@/components/Typewriter'
 
 export default function AchievementsPage() {
   const achievements = [
     {
-      title: 'Hackathon Winner',
-      description: 'Won 1st place at National Tech Hackathon 2023 for developing an innovative healthcare solution that helps patients track medications.',
-      icon: FaTrophy,
+      title: '500+ LeetCode Problems',
+      description: 'Solved over 500 problems on LeetCode spanning arrays, graphs, dynamic programming, and system design. Achieved a highest contest rating of 1660.',
+      icon: FaCode,
       color: 'from-yellow-400 to-orange-500',
-      year: '2023',
-      category: 'Competition',
-    },
-    {
-      title: '5-Star Coder',
-      description: 'Achieved 5-star rating on CodeChef and Expert level on Codeforces. Solved 500+ competitive programming problems.',
-      icon: FaStar,
-      color: 'from-blue-400 to-cyan-500',
-      year: '2023',
+      year: '2023-Present',
       category: 'Competitive Programming',
     },
     {
-      title: 'Open Source Hero',
-      description: 'Contributed to 15+ open source projects including React, Next.js ecosystem. Accumulated 500+ GitHub stars collectively.',
-      icon: FaCode,
-      color: 'from-green-400 to-emerald-500',
-      year: '2022-Present',
-      category: 'Open Source',
+      title: 'Salesforce Ranger & Agentblazer Innovator',
+      description: 'Achieved Salesforce Ranger status and Agentblazer Innovator badge on Trailhead, demonstrating expertise in Salesforce platform and Agentic AI.',
+      icon: FaTrophy,
+      color: 'from-blue-400 to-cyan-500',
+      year: '2024',
+      category: 'Certification',
     },
     {
-      title: 'Research Publication',
-      description: 'Published research paper in IEEE conference on machine learning optimization techniques for edge computing.',
+      title: 'GDG KMIT Study Jams — Top 80',
+      description: 'Secured a top 80 rank three times in Google Developer Groups KMIT Study Jams, competing across cloud and development challenges.',
+      icon: FaMedal,
+      color: 'from-green-400 to-emerald-500',
+      year: '2023-Present',
+      category: 'Community',
+    },
+    {
+      title: 'AI & Deep Learning Certifications',
+      description: 'Completed certifications in Artificial Intelligence, Deep Learning, and NPTEL courses, building a strong foundation in modern ML techniques.',
       icon: FaCertificate,
       color: 'from-purple-400 to-pink-500',
-      year: '2023',
-      category: 'Research',
+      year: '2023-2024',
+      category: 'Certification',
     },
     {
-      title: 'Dean\'s List',
-      description: 'Consistently maintained position in Dean\'s List for 6 consecutive semesters for academic excellence.',
-      icon: FaMedal,
-      color: 'from-red-400 to-rose-500',
-      year: '2020-2024',
-      category: 'Academic',
-    },
-    {
-      title: 'Tech Conference Speaker',
-      description: 'Delivered talks at 3 major tech conferences on modern web development practices and React patterns.',
+      title: 'Salesforce AMTS Step Intern — 2nd Year',
+      description: 'Secured a Software Engineering internship at Salesforce in the second year of undergraduate studies, working on backend reliability and idempotency.',
       icon: FaAward,
-      color: 'from-indigo-400 to-violet-500',
-      year: '2023',
-      category: 'Speaking',
+      color: 'from-red-400 to-rose-500',
+      year: '2024',
+      category: 'Internship',
+    },
+    {
+      title: 'Volunteering at Salesforce',
+      description: 'Volunteered at Salesforce events and initiatives, contributing to community outreach and tech engagement programs during the internship.',
+      icon: FaTrophy,
+      color: 'from-sky-400 to-blue-500',
+      year: '2024',
+      category: 'Volunteering',
     },
   ]
 
   const stats = [
-    { label: 'GitHub Stars', value: '500+', icon: '⭐' },
-    { label: 'Problems Solved', value: '500+', icon: '💻' },
-    { label: 'Hackathons Won', value: '5', icon: '🏆' },
-    { label: 'Contributions', value: '200+', icon: '🔧' },
+    { label: 'LeetCode Problems', value: '500+', icon: '💻' },
+    { label: 'Contest Rating', value: '1660', icon: '📈' },
+    { label: 'Salesforce Badges', value: 'Ranger', icon: '🏆' },
+    { label: 'GDG Top 80 Ranks', value: '3x', icon: '🎯' },
   ]
 
   const containerVariants = {
@@ -127,23 +127,13 @@ export default function AchievementsPage() {
               <motion.div
                 key={achievement.title}
                 variants={cardVariants}
-                whileHover={{ 
-                  scale: 1.05, 
-                  rotate: Math.random() > 0.5 ? 2 : -2,
-                  transition: { duration: 0.3 }
-                }}
+                whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2, transition: { duration: 0.3 } }}
                 className="relative bg-secondary rounded-2xl overflow-hidden shadow-xl group cursor-pointer"
               >
-                {/* Background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${achievement.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                
-                {/* Top badge */}
                 <div className="absolute top-4 right-4">
-                  <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded-full">
-                    {achievement.category}
-                  </span>
+                  <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded-full">{achievement.category}</span>
                 </div>
-                
                 <div className="relative p-6">
                   <motion.div
                     initial={{ rotate: 0 }}
@@ -153,31 +143,14 @@ export default function AchievementsPage() {
                   >
                     <Icon className="text-white text-2xl" />
                   </motion.div>
-                  
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">
-                    {achievement.title}
-                  </h3>
-                  
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                    {achievement.description}
-                  </p>
-                  
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">{achievement.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{achievement.description}</p>
                   <div className="flex items-center justify-between pt-4 border-t border-gray-700/50">
                     <span className="text-accent font-mono text-sm">{achievement.year}</span>
-                    <motion.span
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                      className="text-gray-500"
-                    >
-                      →
-                    </motion.span>
+                    <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="text-gray-500">→</motion.span>
                   </div>
                 </div>
-
-                {/* Decorative element */}
-                <div className="absolute -bottom-4 -right-4 text-6xl opacity-5 group-hover:opacity-10 transition-opacity">
-                  <Icon />
-                </div>
+                <div className="absolute -bottom-4 -right-4 text-6xl opacity-5 group-hover:opacity-10 transition-opacity"><Icon /></div>
               </motion.div>
             )
           })}

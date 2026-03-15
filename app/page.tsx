@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaTerminal, FaArrowRight } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaTerminal, FaArrowRight, FaDownload } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
 import Link from 'next/link'
 import Typewriter from '@/components/Typewriter'
@@ -80,8 +80,8 @@ export default function Home() {
             >
               <Typewriter
                 text={[
+                  "AI Engineer",
                   "Full Stack Developer",
-                  "UI/UX Enthusiast",
                   "Problem Solver",
                   "Tech Innovator"
                 ]}
@@ -96,8 +96,7 @@ export default function Home() {
               variants={itemVariants}
               className="text-lg text-gray-400 mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              Passionate about creating elegant solutions to complex problems.
-              Experienced in modern web technologies and always eager to learn more.
+              AI Engineer and Full Stack Developer building real-world solutions at the intersection of machine learning, backend systems, and modern web. Salesforce SWE Intern at sophomore year.
             </motion.p>
 
             <motion.div
@@ -123,7 +122,7 @@ export default function Home() {
               ))}
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex justify-center lg:justify-start gap-4">
+            <motion.div variants={itemVariants} className="flex flex-wrap justify-center lg:justify-start gap-4">
               <Link href="/contact">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -142,6 +141,16 @@ export default function Home() {
                   View Work
                 </motion.button>
               </Link>
+              <motion.a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 bg-transparent border-2 border-gray-600 hover:border-accent hover:text-accent text-gray-400 font-bold py-3 px-8 rounded-full transition-all duration-300"
+              >
+                <FaDownload className="text-sm" /> Resume
+              </motion.a>
             </motion.div>
           </div>
 

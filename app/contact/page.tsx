@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
 import { SiLeetcode } from 'react-icons/si'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane, FaArrowLeft, FaCheckCircle } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane, FaArrowLeft, FaCheckCircle } from 'react-icons/fa'
 import Typewriter from '@/components/Typewriter'
 
 export default function ContactPage() {
@@ -16,14 +16,23 @@ export default function ContactPage() {
   })
   const [focused, setFocused] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
+    setError(false)
+    const res = await fetch('https://formspree.io/f/xaqpdbgr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(formData),
+    })
+    if (res.ok) {
+      setSubmitted(true)
       setFormData({ name: '', email: '', subject: '', message: '' })
-    }, 3000)
+      setTimeout(() => setSubmitted(false), 4000)
+    } else {
+      setError(true)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,7 +44,6 @@ export default function ContactPage() {
 
   const contactInfo = [
     { icon: FaEnvelope, label: 'Email', value: 'mknsvarun@gmail.com', href: 'mailto:mknsvarun@gmail.com' },
-    { icon: FaPhone, label: 'Phone', value: '+91 9550823377', href: 'tel:+919550823377' },
     { icon: FaMapMarkerAlt, label: 'Location', value: 'Hyderabad, Telangana', href: '#' },
   ]
 
@@ -98,10 +106,6 @@ export default function ContactPage() {
                   <span className="text-blue-400 ml-4">&quot;email&quot;</span>
                   <span className="text-white">: </span>
                   <span className="text-green-400">&quot;mknsvarun@gmail.com&quot;</span>
-                  <span className="text-white">,</span>{'\n'}
-                  <span className="text-blue-400 ml-4">&quot;phone&quot;</span>
-                  <span className="text-white">: </span>
-                  <span className="text-green-400">&quot;+91 9550823377&quot;</span>
                   <span className="text-white">,</span>{'\n'}
                   <span className="text-blue-400 ml-4">&quot;location&quot;</span>
                   <span className="text-white">: </span>
@@ -230,6 +234,8 @@ export default function ContactPage() {
                 className={`w-full py-4 px-8 rounded-xl font-bold flex items-center justify-center gap-3 font-mono transition-all ${
                   submitted
                     ? 'bg-green-600 text-white'
+                    : error
+                    ? 'bg-red-600 text-white'
                     : 'bg-accent hover:bg-blue-600 text-white shadow-lg shadow-accent/25'
                 }`}
               >
@@ -237,6 +243,8 @@ export default function ContactPage() {
                   <>
                     <FaCheckCircle /> Message Sent!
                   </>
+                ) : error ? (
+                  <>Something went wrong. Try again.</>
                 ) : (
                   <>
                     <FaPaperPlane /> sendMessage()

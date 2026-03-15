@@ -9,8 +9,22 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const firaCode = Fira_Code({ subsets: ['latin'], variable: '--font-fira' })
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Your Name',
-  description: 'Personal portfolio showcasing projects, skills, and experience',
+  title: 'Varun | AI Engineer & Full Stack Developer',
+  description: 'Portfolio of MKN Sai Varun — AI Engineer, Full Stack Developer, and Salesforce SWE Intern. Explore projects, experience, and achievements.',
+  keywords: ['Varun', 'MKN Sai Varun', 'AI Engineer', 'Full Stack Developer', 'Portfolio', 'Salesforce', 'Next.js'],
+  authors: [{ name: 'MKN Sai Varun' }],
+  openGraph: {
+    title: 'Varun | AI Engineer & Full Stack Developer',
+    description: 'Portfolio of MKN Sai Varun — AI Engineer, Full Stack Developer, and Salesforce SWE Intern.',
+    url: 'https://mknsvarun.dev',
+    siteName: 'Varun Portfolio',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Varun | AI Engineer & Full Stack Developer',
+    description: 'Portfolio of MKN Sai Varun — AI Engineer, Full Stack Developer, and Salesforce SWE Intern.',
+  },
 }
 
 export default function RootLayout({

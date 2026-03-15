@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { FaBriefcase, FaArrowRight, FaArrowLeft, FaCalendar, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaArrowRight, FaArrowLeft, FaMapMarkerAlt } from 'react-icons/fa'
 import { SiSalesforce } from 'react-icons/si'
 import Typewriter from '@/components/Typewriter'
 
@@ -48,20 +48,12 @@ export default function InternshipsPage() {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   }
 
   const itemVariants = {
     hidden: { opacity: 0, rotateX: -15, y: 50 },
-    visible: {
-      opacity: 1,
-      rotateX: 0,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
+    visible: { opacity: 1, rotateX: 0, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   }
 
   return (
@@ -85,7 +77,6 @@ export default function InternshipsPage() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-[140px] md:left-[180px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-purple-500 to-pink-500" />
 
           <div className="space-y-12">
@@ -103,9 +94,7 @@ export default function InternshipsPage() {
                   <div className="text-gray-500 font-mono text-xs">
                     {experience.duration.split(' - ')[1]}
                   </div>
-                  <div className="text-gray-600 text-xs mt-1">
-                    {experience.type}
-                  </div>
+                  <div className="text-gray-600 text-xs mt-1">{experience.type}</div>
                 </div>
 
                 {/* Timeline dot */}
@@ -116,25 +105,23 @@ export default function InternshipsPage() {
                   className={`absolute left-[132px] md:left-[172px] w-4 h-4 rounded-full bg-gradient-to-br ${experience.color} shadow-lg z-10`}
                 />
 
-                {/* Right side - Content */}
+                {/* Experience card */}
                 <motion.div
-                  whileHover={{ scale: 1.02, x: 5 }}
+                  whileHover={{ scale: 1.01 }}
                   className="flex-1 bg-secondary rounded-2xl p-6 shadow-xl border border-accent/10 hover:border-accent/30 transition-all duration-300 ml-4"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-2xl">
                       {experience.logo === 'salesforce' ? (
                         <SiSalesforce className="text-[#00A1E0]" />
-                      ) : (
-                        experience.logo
-                      )}
+                      ) : experience.logo}
                     </span>
                     <div>
                       <h3 className="text-xl font-bold text-accent">{experience.position}</h3>
                       <p className="text-gray-300">{experience.company}</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-2 text-gray-500 text-sm mb-4">
                     <FaMapMarkerAlt className="text-accent" />
                     {experience.location}
@@ -162,10 +149,7 @@ export default function InternshipsPage() {
 
                   <div className="flex flex-wrap gap-2 pt-4 border-t border-accent/10">
                     {experience.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-mono"
-                      >
+                      <span key={tech} className="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-mono">
                         {tech}
                       </span>
                     ))}
@@ -182,18 +166,12 @@ export default function InternshipsPage() {
           className="flex justify-between items-center mt-16 pt-8 border-t border-accent/10"
         >
           <Link href="/projects">
-            <motion.button
-              whileHover={{ x: -5 }}
-              className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors"
-            >
+            <motion.button whileHover={{ x: -5 }} className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors">
               <FaArrowLeft /> Projects
             </motion.button>
           </Link>
           <Link href="/education">
-            <motion.button
-              whileHover={{ x: 5 }}
-              className="flex items-center gap-2 text-accent hover:text-blue-400 transition-colors"
-            >
+            <motion.button whileHover={{ x: 5 }} className="flex items-center gap-2 text-accent hover:text-blue-400 transition-colors">
               Education <FaArrowRight />
             </motion.button>
           </Link>
