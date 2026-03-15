@@ -4,7 +4,9 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Background, { FloatingShapes, CodeBrackets } from '@/components/Background'
+import { Analytics } from "@vercel/analytics/next"
 
+<Analytics />
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const firaCode = Fira_Code({ subsets: ['latin'], variable: '--font-fira' })
 
