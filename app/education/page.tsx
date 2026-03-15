@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { FaCalendar, FaBook, FaArrowRight, FaArrowLeft, FaTrophy } from 'react-icons/fa'
+import { SiPython } from 'react-icons/si'
 import Typewriter from '@/components/Typewriter'
 
 export default function EducationPage() {
@@ -32,10 +33,10 @@ export default function EducationPage() {
   ]
 
   const certifications = [
-    { name: 'NPTEL Python for DSA', issuer: 'NPTEL', year: '2024', icon: '🐍' },
-    { name: 'IBM Certified Data Science with Python', issuer: 'IBM', year: '2024', icon: '📊' },
-    { name: 'Prompt Design for Vertex AI', issuer: 'Google Cloud Skill Boost', year: '2024', icon: '🤖' },
-    { name: 'Develop GenAI Apps with Gemini and Streamlit', issuer: 'Google Cloud Skill Boost', year: '2024', icon: '✨' },
+    { name: 'NPTEL Python for DSA', issuer: 'NPTEL', year: '2024', icon: null, iconComponent: SiPython, iconColor: '#3776AB' },
+    { name: 'IBM Certified Data Science with Python', issuer: 'IBM', year: '2024', icon: '📊', iconComponent: null },
+    { name: 'Prompt Design for Vertex AI', issuer: 'Google Cloud Skill Boost', year: '2024', icon: '🤖', iconComponent: null },
+    { name: 'Develop GenAI Apps with Gemini and Streamlit', issuer: 'Google Cloud Skill Boost', year: '2024', icon: '✨', iconComponent: null },
   ]
 
   const containerVariants = {
@@ -163,7 +164,7 @@ export default function EducationPage() {
                 whileHover={{ scale: 1.03, x: 5 }}
                 className="bg-secondary/50 p-4 rounded-xl border border-accent/10 hover:border-accent/30 transition-all flex items-center gap-4"
               >
-                <div className="text-3xl">{cert.icon}</div>
+                <div className="text-3xl">{cert.iconComponent ? <cert.iconComponent style={{ color: cert.iconColor }} /> : cert.icon}</div>
                 <div>
                   <h4 className="font-semibold text-white">{cert.name}</h4>
                   <p className="text-sm text-gray-400">{cert.issuer} • {cert.year}</p>
