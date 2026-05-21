@@ -8,8 +8,8 @@ import Typewriter from '@/components/Typewriter'
 export default function AchievementsPage() {
   const achievements = [
     {
-      title: '500+ LeetCode Problems',
-      description: 'Solved over 500 problems on LeetCode spanning arrays, graphs, dynamic programming, and system design. Achieved a highest contest rating of 1660.',
+      title: '600+ LeetCode Problems',
+      description: 'Solved over 600 problems on LeetCode spanning arrays, graphs, dynamic programming, and system design. Achieved a highest contest rating of 1660.',
       icon: FaCode,
       color: 'from-yellow-400 to-orange-500',
       year: '2023-Present',
@@ -58,7 +58,7 @@ export default function AchievementsPage() {
   ]
 
   const stats = [
-    { label: 'LeetCode Problems', value: '500+', icon: '💻' },
+    { label: 'LeetCode Problems', value: '600+', icon: '💻' },
     { label: 'Contest Rating', value: '1660', icon: '📈' },
     { label: 'Salesforce Badges', value: 'Ranger', icon: '🏆' },
     { label: 'GDG Top 80 Ranks', value: '3x', icon: '🎯' },
