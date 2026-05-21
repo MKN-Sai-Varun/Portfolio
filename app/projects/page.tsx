@@ -29,10 +29,10 @@ export default function ProjectsPage() {
     },
     {
       title: 'EchoTrace',
-      description: 'Intelligent logging and trace analysis system for capturing, tracing, and analyzing application logs. Helps developers debug issues and understand execution flows efficiently.',
-      tech: ['Python', 'Backend', 'Observability', 'Logging'],
+      description: 'AI-powered personal timeline platform. Log micro-events throughout your day and get behavioral insights, productivity scoring, mindset inference, and a conversational AI Coach ',
+      tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Groq AI'],
       github: 'https://github.com/MKN-Sai-Varun/EchoTrace',
-      live: '',
+      live: 'https://echo-trace-gamma.vercel.app/',
       color: 'from-green-500 to-emerald-500',
       image: '🔍',
       category: 'Backend · Observability',
