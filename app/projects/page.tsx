@@ -6,12 +6,19 @@ import Link from 'next/link'
 import { FaGithub, FaExternalLinkAlt, FaCode, FaArrowRight, FaArrowLeft, FaTimes, FaExpand } from 'react-icons/fa'
 import Typewriter from '@/components/Typewriter'
 
+type ProjectLink = {
+  label: string
+  href: string
+  kind: 'live-demo' | 'video-demo' | 'documentation'
+}
+
 type Project = {
   title: string
   description: string
   tech: string[]
   github: string
-  live: string
+  demoLinks: ProjectLink[]
+  documentationLinks: ProjectLink[]
   color: string
   image: string
   category: string
@@ -22,56 +29,102 @@ export default function ProjectsPage() {
 
   const projects: Project[] = [
     {
+      title: 'EchoTrace',
+      description: 'AI-powered personal timeline platform. Log micro-events throughout your day and get behavioral insights, productivity scoring, mindset inference, and a conversational AI Coach. EchoTrace turns your daily activity logs into meaningful personal analytics, helping you understand patterns, optimize your routines, and grow with data-driven self-awareness.',
+      tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Groq AI'],
+      github: 'https://github.com/MKN-Sai-Varun/EchoTrace',
+      demoLinks: [{ label: 'Live Demo', href: 'https://echo-trace-gamma.vercel.app/', kind: 'live-demo' }],
+      documentationLinks: [{ label: 'Add Technical Documentation', href: 'https://drive.google.com/file/d/16t1H-lseX2ib_sp_RoLgrCWuxJ-LG2N9/view?usp=sharing', kind: 'documentation' }],
+      color: 'from-green-500 to-emerald-500',
+      image: '🔍',
+      category: 'Backend · Observability',
+    },
+    
+    {
       title: 'Duplicate Order Idempotency',
       description: 'Resolved duplicate order idempotency issue in a Salesforce-integrated system. Designed logic to identify and prevent duplicate order creation with date-based and ID-based validation checks. Implemented robust backend safeguards ensuring that retried requests or network failures never result in duplicate records, maintaining data integrity across the platform.',
       tech: ['Salesforce', 'Backend', 'Enterprise Systems', 'API Design'],
       github: '',
-      live: '',
+      demoLinks: [],
+      documentationLinks: [],
       color: 'from-blue-500 to-cyan-500',
       image: '🏢',
       category: 'Internship @ Salesforce',
+    },
+    {
+      title: 'PRISM',
+      description: 'An offline-first facial recognition attendance system for field personnel operating without network connectivity, running entirely on-device using quantised ML models. Built for NHAI Hackathon 7.0 (Datalake 3.0 track), PRISM supports enrollment, biometric verification, liveness detection, local logging, and AWS sync when connectivity is restored without transmitting biometric data.',
+      tech: ['React Native (Expo)', 'TypeScript', 'TFLite', 'Zustand', 'expo-sqlite', 'AWS Sync'],
+      github: 'https://github.com/MKN-Sai-Varun/PRISM',
+      demoLinks: [],
+      documentationLinks: [{ label: 'Add Technical Documentation', href: 'https://drive.google.com/file/d/1DLR_kJPiffs7vYNZJ5CuzpzdcfVGrzke/view?usp=sharing', kind: 'documentation' }],
+      color: 'from-indigo-500 to-violet-500',
+      image: '🧬',
+      category: 'Hackathon · Mobile AI',
     },
     {
       title: 'CodeGenie',
       description: 'AI-powered VS Code extension providing intelligent code generation, explanations, and inline auto-completions. Features locally hosted LLM inference for privacy and performance. Supports multiple programming languages, offers context-aware suggestions, and integrates seamlessly into the developer workflow without sending code to external servers.',
       tech: ['VS Code API', 'TypeScript', 'LLMs', 'AI/ML'],
       github: 'https://github.com/kmitofficial/CodeGenie-G335-PS25',
-      live: '',
+      demoLinks: [{label:'Add Demo Video',href:'https://youtu.be/Q3nBlNJ5UE8',kind:'video-demo'}],
+      documentationLinks: [{ label: 'Add Technical Documentation', href: 'https://drive.google.com/file/d/1823p-8gjoPMteS5mww-qMTQDF6iavLpN/view?usp=sharing', kind: 'documentation' }],
       color: 'from-purple-500 to-pink-500',
       image: '🧞',
       category: 'AI · Developer Tools',
     },
-    {
-      title: 'EchoTrace',
-      description: 'AI-powered personal timeline platform. Log micro-events throughout your day and get behavioral insights, productivity scoring, mindset inference, and a conversational AI Coach. EchoTrace turns your daily activity logs into meaningful personal analytics, helping you understand patterns, optimize your routines, and grow with data-driven self-awareness.',
-      tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Groq AI'],
-      github: 'https://github.com/MKN-Sai-Varun/EchoTrace',
-      live: 'https://echo-trace-gamma.vercel.app/',
-      color: 'from-green-500 to-emerald-500',
-      image: '🔍',
-      category: 'Backend · Observability',
-    },
+    
     {
       title: 'FusionCast',
       description: 'AI-driven forecasting platform focused on predictive insights for planning and decision-making. Features demand and trend forecasting using data-driven models. FusionCast combines classical time-series methods with modern ML pipelines to deliver accurate, explainable forecasts that help businesses and individuals plan proactively.',
       tech: ['Python', 'Machine Learning', 'Data Analytics', 'Forecasting'],
       github: 'https://github.com/PranavKasanagottu/FusionCast',
-      live: '',
+      demoLinks: [{label:'Add Demo Video',href:'https://youtu.be/2vFugAiTkI8?si=n7y3Xl-2RnlcYNVu',kind:'video-demo'}],
+      documentationLinks: [{ label: 'Add Technical Documentation', href: 'https://drive.google.com/file/d/1-ScIYg_J2_Wr1yimeSIuUgMIc739YzcX/view?usp=sharing', kind: 'documentation' }],
       color: 'from-orange-500 to-yellow-500',
       image: '📈',
       category: 'AI · Data Analytics',
     },
-    {
-      title: 'Expression Analysis for Dyslexic Kids',
-      description: 'Uses computer vision and deep learning to analyze facial expressions of dyslexic children during educational gameplay. Identifies emotions like engagement and frustration to optimize game design, tailoring experiences to individual learning needs and improving outcomes. The system provides real-time emotion feedback to educators, enabling adaptive learning interventions that significantly boost engagement and comprehension for children with dyslexia.',
-      tech: ['Python', 'Computer Vision', 'Deep Learning', 'OpenCV'],
-      github: 'https://github.com/MKN-Sai-Varun/Expression_Analysis-',
-      live: '',
-      color: 'from-indigo-500 to-violet-500',
-      image: '🧠',
-      category: 'AI · Computer Vision',
-    },
+    
   ]
+
+  const linkStyles: Record<ProjectLink['kind'], { label: string; className: string }> = {
+    'live-demo': {
+      label: 'Live',
+      className: 'border-emerald-400/30 bg-emerald-400/10 text-emerald-300',
+    },
+    'video-demo': {
+      label: 'Video',
+      className: 'border-cyan-400/30 bg-cyan-400/10 text-cyan-300',
+    },
+    documentation: {
+      label: 'Docs',
+      className: 'border-amber-400/30 bg-amber-400/10 text-amber-300',
+    },
+  }
+
+  const renderProjectLink = (link: ProjectLink, compact = false) => {
+    const style = linkStyles[link.kind]
+    const baseClassName = compact
+      ? `inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-mono transition-colors ${style.className}`
+      : `inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition-all ${style.className}`
+
+    return (
+      <motion.a
+        key={link.label + link.href}
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: compact ? 1.03 : 1.05 }}
+        whileTap={{ scale: compact ? 0.98 : 0.95 }}
+        className={baseClassName}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <FaExternalLinkAlt className="text-[10px]" />
+        <span>{style.label}</span>
+      </motion.a>
+    )
+  }
 
   // Close modal on Escape key
   useEffect(() => {
@@ -164,7 +217,7 @@ export default function ProjectsPage() {
           )}
         </div>
 
-        <div className="flex gap-4 pt-4 border-t border-gray-700">
+        <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-gray-700">
           {project.github && (
             <motion.a
               href={project.github}
@@ -178,20 +231,9 @@ export default function ProjectsPage() {
               <FaGithub /> Code
             </motion.a>
           )}
-          {project.live && (
-            <motion.a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="flex items-center gap-2 text-gray-400 hover:text-accent transition-colors text-sm"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <FaExternalLinkAlt /> Demo
-            </motion.a>
-          )}
-          {!project.github && !project.live && (
+          {project.demoLinks.map((link) => renderProjectLink(link, true))}
+          {project.documentationLinks.map((link) => renderProjectLink(link, true))}
+          {!project.github && project.demoLinks.length === 0 && project.documentationLinks.length === 0 && (
             <span className="text-gray-500 text-sm italic">Internal/Private Project</span>
           )}
           <span className="ml-auto text-xs text-gray-600 group-hover:text-accent/60 transition-colors flex items-center gap-1">
@@ -351,7 +393,7 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-4 pt-6 border-t border-white/10">
+                  <div className="flex flex-wrap gap-3 pt-6 border-t border-white/10">
                     {selectedProject.github && (
                       <motion.a
                         href={selectedProject.github}
@@ -364,19 +406,9 @@ export default function ProjectsPage() {
                         <FaGithub /> View Code
                       </motion.a>
                     )}
-                    {selectedProject.live && (
-                      <motion.a
-                        href={selectedProject.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all"
-                      >
-                        <FaExternalLinkAlt /> Live Demo
-                      </motion.a>
-                    )}
-                    {!selectedProject.github && !selectedProject.live && (
+                    {selectedProject.demoLinks.map((link) => renderProjectLink(link))}
+                    {selectedProject.documentationLinks.map((link) => renderProjectLink(link))}
+                    {!selectedProject.github && selectedProject.demoLinks.length === 0 && selectedProject.documentationLinks.length === 0 && (
                       <span className="text-gray-500 text-sm italic self-center">
                         🔒 Internal / Private Project
                       </span>
