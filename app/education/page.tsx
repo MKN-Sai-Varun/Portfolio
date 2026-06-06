@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { FaCalendar, FaBook, FaArrowRight, FaArrowLeft, FaTrophy } from 'react-icons/fa'
-import { SiPython } from 'react-icons/si'
+import { SiPython, SiSharp } from 'react-icons/si'
+import { GiArtificialIntelligence } from "react-icons/gi";
 import Typewriter from '@/components/Typewriter'
 
 export default function EducationPage() {
@@ -33,8 +34,8 @@ export default function EducationPage() {
   ]
 
   const certifications = [
-    { name: 'NPTEL Python for DSA', issuer: 'NPTEL', year: '2024', icon: null, iconComponent: SiPython, iconColor: '#3776AB' },
-    { name: 'IBM Certified Data Science with Python', issuer: 'IBM', year: '2024', icon: '📊', iconComponent: null },
+    { name: 'NPTEL Foundations of Deep Learning (Elite + Silver)', issuer: 'NPTEL', year: '2026', icon: null, iconComponent: GiArtificialIntelligence, iconColor: '#3776AB' },
+    { name: 'Foundations of C#', issuer: 'Microsoft', year: '2024', icon: null, iconComponent: SiSharp },
     { name: 'Prompt Design for Vertex AI', issuer: 'Google Cloud Skill Boost', year: '2024', icon: '🤖', iconComponent: null },
     { name: 'Develop GenAI Apps with Gemini and Streamlit', issuer: 'Google Cloud Skill Boost', year: '2024', icon: '✨', iconComponent: null },
   ]
