@@ -142,7 +142,7 @@ export default function Home() {
                 </motion.button>
               </Link>
               <motion.a
-                href="https://drive.google.com/file/d/1N3fOlvWOL9hr7cvM9jjq6_QOXJDA9_C9/view?usp=sharing"
+                href="https://drive.google.com/file/d/1xMjvtisJkxKPSLaYW0AqSK34PHY9m3V1/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -150,6 +150,16 @@ export default function Home() {
                 className="flex items-center gap-2 bg-transparent border-2 border-gray-600 hover:border-accent hover:text-accent text-gray-400 font-bold py-3 px-8 rounded-full transition-all duration-300"
               >
                 <FaDownload className="text-sm" /> Resume
+              </motion.a>
+              <motion.a
+                href="https://drive.google.com/file/d/1eM9anvj2irUX2ZhydpJx_Z8Xf3939y5C/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 bg-transparent border-2 border-gray-600 hover:border-accent hover:text-accent text-gray-400 font-bold py-3 px-8 rounded-full transition-all duration-300"
+              >
+                <FaDownload className="text-sm" /> CV
               </motion.a>
             </motion.div>
           </div>
